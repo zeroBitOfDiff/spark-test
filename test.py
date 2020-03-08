@@ -25,30 +25,37 @@ def conCSV2JSON(csvFile,jsonFile):
 
 def breakUpJson(jsonFile,jsonFile2):
     listOfJson = []
-    newListOfJson = []
+    # newListOfJson = []
+    newNewListOfJson = ""
     with open(jsonFile) as jf:
         listOfJson = json.loads(jf.read())
         print(len(listOfJson))
         for item in listOfJson:
-            newListOfJson.append(json.dumps(item) + '\n')
+            # newListOfJson.append(json.dumps(item) + '\n')
+            newNewListOfJson = newNewListOfJson +  json.dumps(item) + '\n'
     with open(jsonFile2, 'w') as jsonFile:
-        jsonFile.write(json.dumps(newListOfJson))
+        # jsonFile.write(json.dumps(newListOfJson))
+        jsonFile.write(newNewListOfJson)
 # next line after each json file
 
 def viewJson(jsonFile):
     with open(jsonFile) as j:
         jf = json.loads(j.read())
         print(json.dumps (jf, indent=4))
-    
+
+## 
+# possibly todo lambda async break up
+##    
 
 def main():
     userhome = os.path.expanduser('~')
     
     j = userhome + "/Projects/spark-test/test-json/10681_2017_1876_MOESM1_ESM.json"
     j2 = userhome + "/Projects/spark-test/test-json/t2.json"
+    j3 = userhome + "/Projects/spark-test/test-json/t3.json"
     print(j)
-    # breakUpJson(j,j2)
-    viewJson(j2)
+    breakUpJson(j,j3)
+    viewJson(j3)
     
 
 if __name__ == '__main__':
