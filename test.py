@@ -45,6 +45,11 @@ def viewJson(jsonFile):
 
 ## 
 # possibly todo lambda async break up
+# catch errors
+# one line json objs 
+# log the errors
+# fan out to pars
+# async with que put all the days for map 
 ##    
 
 def main():
